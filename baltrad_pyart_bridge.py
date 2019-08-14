@@ -22,8 +22,8 @@ along with RAVE.  If not, see <http://www.gnu.org/licenses/>.
 ## @author Daniel Michelson (SMHI) and Jonathan Helmus (ARM)
 ## @date 2014-08-19
 
-import time
-import datetime
+import time, datetime
+import math
 
 import numpy as np
 
@@ -42,10 +42,11 @@ try:
     import _polarvolume
     import _polarscan
     import _polarscanparam
-    from Proj import dr, rd
 except ImportError:
     raise ImportError("Can't find RAVE. Please install it.")
 
+dr = math.pi / 180.0
+rd = 180.0 / math.pi
 
 ## Takes a Py-ART radar object and maps it to a RAVE polar scan or volume
 # @param radar Py-ART radar object
